@@ -5,8 +5,6 @@ read subject
 echo "What is the extension of the pictures (ex: .jpg)?"
 read picture_extension
 
-pictures_list=$(ls *$picture_extension)
-
 for picture in $(ls *$picture_extension)
 do
 	picture_create_date=$(echo $(exiftool -T -createdate $picture | awk '{print $1}') | awk -F ":" '{print $1"-"$2"-"$3}')
